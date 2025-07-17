@@ -6,6 +6,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Dashboard from "./pages/Dashboard.jsx";
 import Journal from "./pages/Journal.jsx";
 import Navbar from "./components/Navbar.jsx";
+import { Box, ThemeProvider } from "@mui/material";
+import theme from "./theme/CustomTheme.jsx";
 
 const NAVIGATION = [
   {
@@ -22,15 +24,26 @@ const NAVIGATION = [
 
 const App = () => {
   return (
-    <BrowserRouter>
-      <Navbar navigation={NAVIGATION}>
-        <Routes>
-          <Route path="/" element={<Dashboard />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/journal" element={<Journal />} />
-        </Routes>
-      </Navbar>
-    </BrowserRouter>
+    <ThemeProvider theme={theme}>
+      <BrowserRouter>
+        <Box
+          sx={{
+            justifyContent: "center",
+            display: "flex",
+            minHeight: "100vh",
+            alignContent: "center",
+          }}
+        >
+          <Navbar navigation={NAVIGATION}>
+            <Routes>
+              <Route path="/" element={<Dashboard />} />
+              <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/journal" element={<Journal />} />
+            </Routes>
+          </Navbar>
+        </Box>
+      </BrowserRouter>
+    </ThemeProvider>
   );
 };
 

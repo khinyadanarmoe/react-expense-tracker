@@ -14,9 +14,11 @@ import {
   Typography,
   useTheme,
   useMediaQuery,
+  colors,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import { useNavigate, useLocation } from "react-router-dom";
+import logo from "../assets/logo.png";
 
 const drawerWidth = 240;
 
@@ -42,9 +44,39 @@ const Navbar = ({ navigation, children }) => {
   const drawer = (
     <div>
       <Toolbar>
-        <Typography variant="h6" noWrap component="div">
-          Expense Tracker
-        </Typography>
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column", // Stack items vertically
+            alignItems: "center",
+            width: "100%",
+            py: 10,
+          }}
+        >
+          <img
+            src={logo}
+            alt="Logo"
+            style={{
+              width: 100,
+              height: 100,
+              marginBottom: 8,
+            }}
+          />
+          <Typography
+            variant="h5"
+            noWrap
+            component="div"
+            sx={{
+              textAlign: "center",
+              paddingTop: 3,
+            }}
+          >
+            <span style={{ color: "#ce9532ff", fontWeight: "bold" }}>
+              Expense
+            </span>{" "}
+            Tracker
+          </Typography>
+        </Box>
       </Toolbar>
       <List>
         {navigation.map((item) => (
