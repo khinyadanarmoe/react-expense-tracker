@@ -11,12 +11,12 @@ import theme from "../theme/CustomTheme.jsx";
 
 const NAVIGATION = [
   {
-    path: "/dashboard",
+    path: "/react-expense-tracker/dashboard",
     title: "Dashboard",
     icon: <AssessmentIcon />,
   },
   {
-    path: "/journal",
+    path: "/react-expense-tracker/journal",
     title: "Journal",
     icon: <EditNoteIcon />,
   },
@@ -36,9 +36,15 @@ const App = () => {
         >
           <Navbar navigation={NAVIGATION}>
             <Routes>
-              <Route path="/" element={<Dashboard />} />
-              <Route path="/dashboard" element={<Dashboard />} />
-              <Route path="/journal" element={<Journal />} />
+              <Route path="/react-expense-tracker" element={<Dashboard />} />
+              <Route
+                path="/react-expense-tracker/dashboard"
+                element={<Dashboard />}
+              />
+              <Route
+                path="/react-expense-tracker/journal"
+                element={<Journal />}
+              />
             </Routes>
           </Navbar>
         </Box>
